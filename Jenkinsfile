@@ -18,6 +18,7 @@ pipeline {
 
     stages {
         stage('Build project') {
+            agent any
             steps {
                 sh 'docker build -t spring-boot-jpa-postgresql .'
             }
