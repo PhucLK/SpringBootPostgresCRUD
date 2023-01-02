@@ -1,6 +1,7 @@
 pipeline {
 //     agent any
-    agent {label 'Built-In Node'}
+    agent any
+//     {label 'Built-In Node'}
 
     environment {
         DOCKER_HUB_LOGIN = credentials('dockerHub')
