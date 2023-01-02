@@ -4,7 +4,7 @@ pipeline {
 //     {label 'Built-In Node'}
 
     environment {
-        DOCKER_HUB_LOGIN = credentials('dockerHub')
+        DOCKER_HUB_LOGIN = credentials('dockerhub')
     }
 //     triggers {
 //         pollSCM '* * * * *'
