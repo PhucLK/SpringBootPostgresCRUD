@@ -1,12 +1,6 @@
 pipeline {
 //     agent any
-    agent {
-        label 'linux'
-//         docker {
-//           image 'node:lts-buster-slim'
-//           args '-p 8989:8989'
-//         }
-    }
+    agent {label 'Built-In Node'}
 
     environment {
         DOCKER_HUB_LOGIN = credentials('dockerHub')
