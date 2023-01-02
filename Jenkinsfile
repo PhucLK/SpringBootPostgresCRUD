@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+//     agent any
+    agent {
+        docker {
+          image 'node:lts-buster-slim'
+          args '-p 8989:8989'
+        }
+    }
 
 //     environment {
 //         DOCKER_HUB_LOGIN = credentials('283574a8-b551-4f94-880d-ff8607fe780e')
