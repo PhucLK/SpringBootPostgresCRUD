@@ -3,6 +3,8 @@ version: '2'
 services:
   app:
     image: 'spring-boot-jpa-postgresql'
+    expose:
+      - "5000"
     ports:
       - "5000:5000"
     build:
@@ -11,14 +13,14 @@ services:
     depends_on:
       - db
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
   db:
     image: 'postgres'
-    container_name: db
+    container_name: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
