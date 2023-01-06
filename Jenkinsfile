@@ -1,11 +1,11 @@
 pipeline{
     agent any
-    tools {
-        maven 'MAVEN'
-        docker 'Docker'
-    }
     stages {
         stage('Build Maven') {
+
+            tools {
+                maven 'MAVEN'
+            }
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: '3fef490a-c252-4b84-8849-f0ee330d4316', url: 'https://github.com/PhucLK/SpringBootPostgresCRUD.git']])
 
@@ -14,6 +14,9 @@ pipeline{
             }
         }
         stage('Build Docker Image') {
+            tools {
+                docker 'Docker'
+            }
             steps {
                 script {
                   sh 'docker build -t 0357860030/spring-boot-jpa-postgresql .'
